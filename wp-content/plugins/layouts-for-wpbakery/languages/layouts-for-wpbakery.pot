@@ -1,0 +1,184 @@
+# Copyright (C) 2018
+# This file is distributed under the same license as the  package.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Layouts for WPBakery\n"
+"Report-Msgid-Bugs-To: info@techeshta.com\n"
+"POT-Creation-Date: 2022-11-16 16:28+0530\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Techeshta\n"
+"Language-Team: Techeshta <info@techeshta.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 3.1.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _esc_attr__;esc_attr_x;esc_attr_e;esc_html__;"
+"esc_html_e;esc_html_x;__;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c;_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/class-layout-importer.php:63
+msgid "Invalid Template ID."
+msgstr ""
+
+#: includes/class-layout-importer.php:154
+msgid "Template is successfully imported!"
+msgstr ""
+
+#: includes/class-layout-importer.php:156
+msgid "Error: Templates exists!"
+msgstr ""
+
+#: includes/layouts.php:3 layouts-for-wpbakery.php:110
+#: layouts-for-wpbakery.php:119 layouts-for-wpbakery.php:137
+msgid "Layouts for WPBakery"
+msgstr ""
+
+#: includes/layouts.php:7
+msgid "WPBakery Template Kits:"
+msgstr ""
+
+#: includes/layouts.php:9
+msgid "Sync Now"
+msgstr ""
+
+#: includes/layouts.php:18
+msgid "Browse by Industry"
+msgstr ""
+
+#: includes/layouts.php:20
+msgid "All"
+msgstr ""
+
+#: includes/layouts.php:50
+msgid "PRO"
+msgstr ""
+
+#: includes/layouts.php:52
+msgid "FREE"
+msgstr ""
+
+#: includes/layouts.php:57
+msgid "Preview"
+msgstr ""
+
+#: includes/layouts.php:58
+msgid "Install"
+msgstr ""
+
+#: includes/layouts.php:77 includes/layouts.php:138
+msgid "This template is premium version"
+msgstr ""
+
+#: includes/layouts.php:80 includes/layouts.php:141
+msgid "Buy Now"
+msgstr ""
+
+#: includes/layouts.php:81 includes/layouts.php:89 includes/layouts.php:142
+#: includes/layouts.php:151
+msgid "Edit Template"
+msgstr ""
+
+#: includes/layouts.php:85 includes/layouts.php:147
+msgid "Import this template via one click"
+msgstr ""
+
+#: includes/layouts.php:88 includes/layouts.php:150
+msgid "Import Template"
+msgstr ""
+
+#: includes/layouts.php:92 includes/layouts.php:154
+msgid "OR"
+msgstr ""
+
+#: includes/layouts.php:95 includes/layouts.php:157
+msgid "Create a new page from this template"
+msgstr ""
+
+#: includes/layouts.php:97 includes/layouts.php:160
+msgid "Create New Page"
+msgstr ""
+
+#: includes/layouts.php:103
+msgid "Your template is successfully imported!"
+msgstr ""
+
+#: includes/layouts.php:104 includes/layouts.php:167
+msgid "Edit Page"
+msgstr ""
+
+#: includes/layouts.php:107 includes/layouts.php:171
+msgid "Something went wrong!"
+msgstr ""
+
+#: includes/layouts.php:112
+msgid "Open Preview in New Tab"
+msgstr ""
+
+#: includes/layouts.php:165 layouts-for-wpbakery.php:165
+msgid "Your page is successfully imported!"
+msgstr ""
+
+#: layouts-for-wpbakery.php:110
+msgid ""
+" plugin not working because you need to activate the WPBakery plugin."
+msgstr ""
+
+#: layouts-for-wpbakery.php:111
+msgid "Activate WPBakery Now"
+msgstr ""
+
+#: layouts-for-wpbakery.php:119
+msgid " plugin not working because you need to install the WPBakery plugin"
+msgstr ""
+
+#: layouts-for-wpbakery.php:120
+msgid "Get WPBakery"
+msgstr ""
+
+#: layouts-for-wpbakery.php:137
+msgid ""
+" plugin not working because you are using an old version of WPBakery."
+msgstr ""
+
+#: layouts-for-wpbakery.php:138
+msgid "Get Latest WPBakery"
+msgstr ""
+
+#: layouts-for-wpbakery.php:163
+msgid "Importing..."
+msgstr ""
+
+#: layouts-for-wpbakery.php:164
+msgid "Template is successfully imported!."
+msgstr ""
+
+#: layouts-for-wpbakery.php:166
+msgid "Please Enter Page Name."
+msgstr ""
+
+#: layouts-for-wpbakery.php:167
+msgid "Syncing..."
+msgstr ""
+
+#: layouts-for-wpbakery.php:168
+msgid "Templates library refreshed"
+msgstr ""
+
+#: layouts-for-wpbakery.php:169
+msgid "Error in library Syncing"
+msgstr ""
+
+#: layouts-for-wpbakery.php:170
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: layouts-for-wpbakery.php:189
+msgid "Layouts"
+msgstr ""

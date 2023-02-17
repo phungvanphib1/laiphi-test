@@ -1,0 +1,322 @@
+= 3.13.0 =
+* Add Notification alerting websites using Password Protection or JavaScript to display content they need to upgrade to PrintFriendly Pro
+
+= 3.12.5 =
+* Chanage link in settings page
+
+= 3.12.4 =
+* Bug fix, avoid "undefined variable: return"
+
+= 3.12.3 =
+* Bug fix, sometimes custom image didn't display correctly after upgrade
+
+= 3.12.2 =
+* Add title to Printfriendly button and change button image alt
+
+= 3.12.1 =
+* Fix translations
+
+= 3.12.0 =
+* Update custom button UI
+
+= 3.11.2 =
+* Fix button upgrade for pf-icon-both.gif
+
+= 3.11.1 =
+* Bug fix
+
+= 3.11.0 =
+* Update buttons
+
+= 3.10.0 =
+* Change "leave us a rating" message.
+
+= 3.9.2 =
+* Correctly handle spaces in print-only detection
+
+= 3.9.1 =
+* Better print-only detection
+
+= 3.9.0 =
+* Add new button
+
+= 3.8.8 =
+* Bug fix.
+
+= 3.8.7 =
+* Bug fix.
+
+= 3.8.6 =
+* Allow default image setting to be small medium or large.
+
+= 3.8.5 =
+* Bug fix.
+
+= 3.8.4 =
+* Bug fix.
+
+= 3.8.1 =
+* Improve automatic error reporting.
+
+= 3.8.0 =
+* Add automatic error reporting.
+
+= 3.7.6 =
+* WooCommerce support improvments: remove upsells from print preview.
+
+= 3.7.5 =
+* WooCommerce support improvments: fix DOMDocument.loadHTML warnings.
+
+= 3.7.4 =
+* Added CSS Relative Position and Z-Index to button to avoid content covering the button.
+
+= 3.7.3 =
+* Always use https
+
+= 3.7.2 =
+* Use schema less URLs for loading icons
+
+= 3.7.1 =
+* Use www.printfriendly.com instead of app.printfriendly.com for redirects
+
+= 3.7.0 =
+* Remove http/https option, use current schema
+
+= 3.6.0 =
+* Allow custom HTML in Custom Button Text
+
+= 3.5.4 =
+* WooCommerce 'Content Algorithm' fix
+
+= 3.5.3 =
+* Fix security issues
+
+= 3.5.2 =
+* Fix code to support PHP 5.2
+
+= 3.5.0 =
+* WooCommerce product page improvements. Better support for product images, price, and description.
+
+= 3.4.9 =
+* Fix minor security issue
+
+= 3.4.8 =
+* Fix button images style
+
+= 3.4.7 =
+* Fix button style to remove underline
+
+= 3.4.6 =
+* Always removed PrintFriendly button underline regardless plugin CSS for button styles option
+
+= 3.4.4 =
+* Removed page content selection option - Wordpress Standard/Strict
+
+= 3.4.2 =
+* Fixed the issue occured due to new changes made in the page content selection options
+
+= 3.4.1 =
+* Improved page content selection options
+
+= 3.4.0 =
+* Fixed the admin javascript error and increased plugin text boxes size
+* Enabled Print Friendly button href to www.printfriendly.com only when the plugin JavaScript option is enabled
+* Made some plugin text translation ready
+
+= 3.3.10 =
+* Implemented both Classic Google Analytics and Google Universal Analytics code
+* Fixed WP Slimstat conflict
+
+= 3.3.9 =
+* Removed the functionality that opens new window when JavaScript is disabled
+
+= 3.3.8 =
+* Shortcode bug fix
+* Urlencoded button href to produce valid html
+
+= 3.3.7 =
+* Readme.txt update
+
+= 3.3.6 =
+* Fixed JS optimization Bug
+
+= 3.3.5 =
+* Wordpress 3.8 support
+
+= 3.3.4 =
+* Provided Algorithm Options
+
+= 3.3.3 =
+* Using WP content hook for all Buttons
+
+= 3.3.2=
+* Algorithm Update
+
+= 3.3.1 =
+* SSL Support bug fixes.
+
+= 3.3.0 =
+
+* Optimized JavaScript, reducing the file size by 65%!
+* Better syncing between client-side/server-side content detection algorithm. This will make improvements to content detection easier than ever.
+* Support for international language sub-regions, for example PT-BR vs. PT (Portuguese-Brazil vs. Portuguese for Portugal)
+* Support for Wordpress - 3.6 .
+* Printfriendly custom commands support.
+
+= 3.2.10 =
+* Fixed Bug in Google Analytics generation
+
+= 3.2.9 =
+* Enabled support for Google Analytics
+
+= 3.2.8 =
+* Algorithm Update
+
+= 3.2.7 =
+* Removed Break tag from button code.
+
+= 3.2.6 =
+* Fixed Button behavior when displayed on Homepage for NON-JS version.
+* Fixed CSS issue with Button when placed above content.
+* Fixed box-shadow issue with button.
+* Custom print and pdf options now available for Non-JS version. Custom options include header, css, image alignment, etc..
+* Fixed bug for custom tagline.
+
+= 3.2.5 =
+* Added hide images and image style options.
+* Improved input validation.
+* Improved output escaping.
+* Removed printfriendly post_class.
+* Small i8n fix.
+* Few small HTML fixes.
+
+= 3.2.4 =
+* Add printfriendly post_class.
+* Fixed minor JS bug.
+* Added redundancy to uninstall script.
+
+= 3.2.3 =
+* Rolling back to version 3.2.1
+
+= 3.2.2 =
+
+* Add printfriendly post_class.
+* Add printfriendly button display settings per individual category.
+* Fixed minor JS bug.
+* Added redundancy to uninstall script.
+
+= 3.2.1 =
+
+* Improve script loading.
+
+= 3.2.0 =
+
+* Important chrome issue fix. Ie syntax error fix.
+
+= 3.1.9 =
+
+* Minor css detail.
+
+= 3.1.8 =
+
+* Add printfriendly options to allow/not allow print, pdf, email from the Printfriendly and PDF dialog.
+
+= 3.1.7 =
+
+* Revert default print button show settings. Prevent easy override of print button text-decoration and border style properties.
+
+= 3.1.6 =
+
+* Adding PrintFriendly and PDF alignment style classes.
+
+= 3.1.5 =
+
+* Set button appearance in more flexible way. Remove styles that interfered with wordpress themes. Add shortcode for printfriendly button. Fix redirect to printfriendly.com link. Added custom css feature.
+
+= 3.1.4 =
+
+* Changed https url. Don't hide text change box when disabling css.
+
+= 3.1.3 =
+
+* Fixed bug with disable css option.
+
+= 3.1.2 =
+
+* Added disable css option to admin settings.
+
+= 3.1.1 =
+
+* Fixed admin js caching.
+
+= 3.1.0 =
+
+* Fixed admin css caching.
+
+= 3.0.9 =
+
+* New features: Custom header, disable click-to-delete, https support (beta), PrintFriendly Pro (ad-free).
+
+= 3.0.8 =
+
+* Reordered PrintFriendly & PDF buttons. CSS stylesheet option is now checked by default.
+
+= 3.0.7 =
+
+* Added additional images for print button.
+
+= 3.0.6 =
+
+* Fix bug that displays button on category pages when posts and pages is selected.
+
+= 3.0.5 =
+
+* PrintFriendly & PDF button will now display on category pages (archive pages), if "Homepage, Archives, Posts, and Pages" was selected in the Settings for PrintFriendly & PDF (button placement).
+
+= 3.0.4 =
+
+* Align-right and align-center support for themes that remove WordPress core css.
+
+= 3.0.3 =
+
+* Support for bad themes that alter template tags and prevent JavaScript from loading in footer.
+
+= 3.0.2 =
+
+* Fixed JS bug with Google Chrome not submitting and fixed input validation issues.
+
+= 3.0.1 =
+
+* Fixed minor JS bug.
+
+= 3.0 =
+
+* A complete overhaul of the plugin by renowned WordPress plugin developer <a href="http://yoast.com/">Joost de Valk</a>.
+* Code Changes:
+	* Redone the admin page.
+	* Plugin is now fully i18n ready.
+	* Plugin now uses the settings API.
+	* CSS loading is now optional.
+	* JavaScript loading is now optional.
+	* Plugin now uses WordPress default align classes for outlining.
+* Documentation changes:
+	* Added an FAQ.
+	* Added Screenshots.
+
+= 2.1.8 =
+
+* The Print Button was showing up on printed, or PDF, pages. Junk! Print or PDF button no longer displayed on printed out page or PDF.
+
+= 2.1.7 =
+
+* Changed print button from `<span>` to `<div>` to support floating the print and PDF button to right.
+
+= 2.1.6 =
+
+* Added rel="nofollow" to the print links to avoid search engines indexing the print pages.
+* Changed print button from link `<a>` to `<span>`. Some tracking plugins added target_new/blank to link, therefore breaking print friendly.
+
+= 2.1.5 =
+
+* To avoid conflicts with Google Analytics widgets, changed link structure. No longer uses onclick to call PrintFriendly Javascript. Now the javascript is called in the href.
+* Custom image support for hosted solutions

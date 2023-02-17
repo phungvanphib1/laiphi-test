@@ -1,0 +1,379 @@
+/* Helper Classes */
+
+.pf-no-margin {
+  margin: 0
+}
+
+.pf-hidden {
+  display: none;
+}
+.clearfloat{
+  clear:both;
+}
+label {
+  display: block;
+  margin: 0.5em 0;
+  font-size: 14px !important;
+}
+
+h3 {
+  margin: 1.5rem 0 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom:.75em;
+  clear: both;
+}
+
+h3.hndle {
+  clear:none;
+  padding: 7px 5px;
+}
+
+input[type="radio"], img {
+  vertical-align: middle;
+}
+
+#placement-adv-options {
+  float: left;
+}
+
+.description {
+  color: #cacaca;
+}
+.printfriendly-text2 {
+  font-family: verdana;
+  font-size: 14px;
+  color: #6D9F00;
+}
+select{
+  display: block;
+  margin: .5em .5em .5em 0;
+}
+select#javascript, select#website_protocol, select#password_protected, select#dynamic_content {
+  display: inline-block;
+  margin-bottom: 0;
+}
+input[type="radio"], input[type="checkbox"] {
+  cursor: pointer;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+
+/* WP lacks styling for type="number", so in here for now */
+input[type="number"] {
+	border-color: #DFDFDF;
+	background-color: white;
+	border-width: 1px;
+	border-style: solid;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 36px;
+	margin-right: .5em;
+}
+#css {
+  font-size: 11px;
+  color:#bbb;
+}
+#css input {
+  margin: 0 6px 0 12px;
+  vertical-align: baseline;
+}
+#pf-shortcode {
+  margin-left: 2em;
+}
+
+label#pf-favicon {
+  vertical-align: baseline;
+  margin: 0;
+}
+
+.printfriendly-details input {
+  width: 20em;
+}
+
+.printfriendly-details label {
+  margin-left: 5px;
+  margin-right: 2px;
+}
+
+#after-submit {
+  border-top: 2px dashed #dfdfdf;
+  margin:4em 0 0 0;
+}
+#addmanual-help {
+	display: none;
+}
+
+#button-placement div#pages label {
+	clear: left;
+}
+
+div#category-adder {
+	float: none;
+}
+
+#pf-categories {
+	display: none;
+	float: left;
+	position: relative;
+	top: 1.5em;
+	left: 20px;
+	width: 270px;
+}
+#pf-categories h4 {
+	margin: 0 0 0.4em 0;
+}
+
+#pf-categories-metabox, #category-adder {
+  display: none;
+}
+
+span.description.pf-help-link {
+	font-size: 130%;
+	padding-left: 10px;
+	font-style: normal;
+}
+
+.no-italics {
+	font-style: normal !important;
+}
+
+#margin input[type="number"]{
+	width: 65px;
+}
+
+div.custom-btn.disabled {
+	opacity: 0.5;
+	pointer-events: none;
+	display: none;
+}
+
+/* Pro Notice Alert Layout */
+.pf-notice {
+  border-left: 4px solid #fff;
+  padding: 0 1.25rem;
+  background: #fff;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+  margin: 5px 0 15px;
+  display:inline-block;
+}
+
+.pf-col-1{
+  float:left;
+  margin:0rem 1.5rem 1.5rem 0;
+}
+.pf-col-2{
+  float: left;
+  margin:0rem 1.5rem 1.5rem 0;
+}
+
+.pf-form-element {
+  margin: 0 0 15px 0;
+}
+
+.pf-btn-message {
+  margin-left: .5rem;
+}
+
+/* Colors */
+.pf-error {
+  color: red;
+  display: none;
+}
+
+.pf-text-success {
+  color: #46b450;
+}
+
+.pf-text-warning {
+  color: #ffb900;
+}
+
+.pf-text-error {
+  color: #dc3232;
+}
+
+.pf-notice-success {
+  border-left: 4px solid #46b450;
+}
+
+.pf-notice-warning {
+  border-left: 4px solid #ffb900;
+}
+
+.pf-notice-error {
+  border-left: 4px solid #dc3232;
+}
+
+.pf-alert-success{
+  padding:.75rem 1.25rem;
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  border-radius: .25rem;
+}
+.pf-alert-warning{
+  padding:.75rem 1.25rem;
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+  border-radius: .25rem;
+}
+/* This hides messages depending on pro status */
+.pf-notice-success .pf-pro-features{
+  display:none;
+}
+
+ol {
+	list-style: circle !important;
+} 
+
+
+.pf-algo-usage.pf-algo-usage-css input[type="text"] {
+	width: 400px;
+}
+
+#custom-img {
+	margin: 0 4.5em;
+}
+
+#enter-image-url {
+	margin: 10px 0 0 30px;
+	display: none;
+}
+
+#custom-image-rb:checked ~ #enter-image-url {
+	display: block;
+}
+
+#pf-txt-attributes {
+	display: none;
+	margin: 1em 0;
+}
+
+#custom-text-rb:checked ~ #pf-txt-attributes {
+	display: block;
+}
+
+#custom-logo {
+	display: none;
+	margin: 1em 0;
+}
+
+#icon-upload-an-image:checked ~ #custom-logo {
+	display: block;
+}
+
+.pf-label-inline {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.pf-label-inline label {
+	width: 15%;
+}
+
+.pf-label-inline label ~ select {
+	margin-left: 5%;
+}
+
+.pf-select2 {
+	width: 50%;
+}
+
+.wp-core-ui select {
+	min-width: 150px;
+	margin-top: 0;
+}
+
+.pf-features .pf-bu-label {
+	margin-top: 0;
+	min-width: 250px;
+}
+
+.pf-features .pf-label-inline {
+	align-items: flex-start;
+	min-height: 70px;
+}
+
+.pf-features p.description {
+	margin: 0 0 1em 0;
+}
+
+.pf-accordion > label::before {
+	font-family: 'dashicons';
+	content: "\f139";
+	font-size: 22px;
+	line-height: 1;
+	vertical-align: middle;
+}
+
+.pf-accordion > label.ui-accordion-header-active::before {
+	content: "\f140";
+}
+
+p.description {
+	margin: 0 0 2em 0;
+}
+
+p.description, span.description {
+	font-size: 12px;
+}
+
+code {
+	padding: 10px;
+	display: block;
+	overflow-wrap: anywhere;
+}
+
+code ~ p.description {
+	margin-top: 10px;
+}
+
+.pf-button-img {
+	border: none;
+	-webkit-box-shadow: none; 
+	-moz-box-shadow: none; 
+	box-shadow: none; 
+	padding: 0; 
+	margin: 0;
+	display: inline; 
+	vertical-align: middle;
+}
+
+.pf-button-img:not(:empty) ~ .pf-button-text {
+	margin-left: 6px;
+}
+
+#custom-img-sizes {
+	margin-top: 10px;
+}
+
+#custom_image_label img {
+	max-width: 200px;
+}
+
+.small-text {
+	font-size: smaller;
+}
+
+/* do not show any notices that do not belong to us */
+.notice:not(.pf-notice) {
+	display: none;
+}
+
+/** override bulma styles **/
+
+.pf-regular-text {
+	width: 25em !important;
+} 
+

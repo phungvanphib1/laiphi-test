@@ -1,0 +1,118 @@
+# Copyright (C) 2018 wp-book
+# This file is distributed under the same license as the wp-book package.
+msgid ""
+msgstr ""
+"Project-Id-Version: wp-book\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/admin/Controller.php:122, src/admin/Controller.php:123
+msgid "WP Book"
+msgstr ""
+
+#: src/admin/Controller.php:135, src/admin/Controller.php:265
+msgid "Download PDF"
+msgstr ""
+
+#: src/admin/Controller.php:161
+msgid "Post Types"
+msgstr ""
+
+#: src/admin/Controller.php:172
+msgid "Number of posts"
+msgstr ""
+
+#: src/admin/Controller.php:177
+msgid "Order By"
+msgstr ""
+
+#: src/admin/Controller.php:179
+msgid "ASC"
+msgstr ""
+
+#: src/admin/Controller.php:180
+msgid "DESC"
+msgstr ""
+
+#: src/admin/Controller.php:185
+msgid "Sort"
+msgstr ""
+
+#: src/admin/Controller.php:188
+msgid "ID"
+msgstr ""
+
+#: src/admin/Controller.php:189
+msgid "Author"
+msgstr ""
+
+#: src/admin/Controller.php:190
+msgid "Title"
+msgstr ""
+
+#: src/admin/Controller.php:191
+msgid "Name"
+msgstr ""
+
+#: src/admin/Controller.php:192
+msgid "Type"
+msgstr ""
+
+#: src/admin/Controller.php:193
+msgid "Published Date"
+msgstr ""
+
+#: src/admin/Controller.php:194
+msgid "Modified Time"
+msgstr ""
+
+#: src/admin/Controller.php:195
+msgid "Parent"
+msgstr ""
+
+#: src/admin/Controller.php:196
+msgid "Random"
+msgstr ""
+
+#: src/admin/Controller.php:205
+msgid "Page Format"
+msgstr ""
+
+#: src/admin/Controller.php:216
+msgid "Page Orientation"
+msgstr ""
+
+#: src/admin/Controller.php:227
+msgid "Apply page breaks after each posts"
+msgstr ""
+
+#: src/admin/Controller.php:232
+msgid "Header"
+msgstr ""
+
+#: src/admin/Controller.php:238
+msgid "Footer"
+msgstr ""
+
+#: src/admin/Controller.php:244
+msgid "Template"
+msgstr ""
+
+#: src/admin/Controller.php:264
+msgid "Generate Book"
+msgstr ""
+
+#: src/admin/Controller.php:437
+msgid "Portrait"
+msgstr ""
+
+#: src/admin/Controller.php:438
+msgid "landscape"
+msgstr ""

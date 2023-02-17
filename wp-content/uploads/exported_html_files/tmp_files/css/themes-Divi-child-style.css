@@ -1,0 +1,18 @@
+/*
+Theme Name:   Divi Child
+Theme URI:    #
+Description:  Divi Child Theme
+Author:       Phiphi
+Author URI:   #
+Template:     Divi
+Version:      1.0.0
+License:      GNU General Public License v2 or later
+License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+Tags:         theme
+Text Domain:  Divi
+*/
+
+@font-face{
+    font-family: 'tradego20';
+    src: url(./../fonts/TradeGothicBoldCondensedNo.20.ttf) format('truetype');
+}

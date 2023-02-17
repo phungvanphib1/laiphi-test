@@ -1,0 +1,36 @@
+.e2pdf-dialog .visual-mapper label.frm_hidden,
+.e2pdf-dialog .visual-mapper legend.frm_screen_reader,
+.e2pdf-dialog .visual-mapper .frm_total_formatted {
+    display: none;
+}
+
+.e2pdf-dialog .visual-mapper .frm_switch_block input {
+    position: absolute;
+    display: block !important;
+}
+
+.e2pdf-vm-content .frm_fields_container h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.e2pdf-vm-content .frm_style_formidable-style.with_frm_style .frm_repeat_sec {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+input[e2pdf-vm-hidden="true"] {
+    margin-bottom: 10px!important;
+}
+
+.frm_style_formidable-style.with_frm_style input.frm_other_input:not(.frm_other_full) {
+    width: 100%;
+}
+
+.frm_style_formidable-style.with_frm_style .frm_checkbox input.frm_other_input:not(.frm_other_full), .frm_style_formidable-style.with_frm_style .frm_radio input.frm_other_input:not(.frm_other_full) {
+    margin-left: 0;
+}
+
+.e2pdf-vm-content .with_frm_style legend + h3, .with_frm_style h3.frm_form_title {
+    line-height: normal;
+}
