@@ -3,7 +3,7 @@ $urlInfo = parse_url(get_option('siteurl'));
 $domain = ( isset($urlInfo['host']) ? $urlInfo['host'] : '' );
 
 // don't throw a PHP notice if license_date is not defined
-$license_date = isset($this->options['license_date']) ? $this->options['license_date'] : '';
+$license_date = $this->getVal('license_date', '');
 
 if (! empty($license_date)) {
     $license_date = date_i18n(get_option('date_format') . ' ' . get_option('time_format'), $license_date / 1000 + get_option('gmt_offset') * HOUR_IN_SECONDS);
@@ -20,8 +20,8 @@ if (! empty($license_date)) {
             </p>
             <div class="pf-col-1 ">
                 <?php
-                if (! ( empty($this->val('pro_email', false)) && in_array($this->val('license_status', false), array( 'pro' ), true) )) {
-                    $email = $this->val('pro_email', false);
+                if (! ( empty($this->getVal('pro_email')) && in_array($this->getVal('license_status'), array( 'pro' ), true) )) {
+                    $email = $this->getVal('pro_email');
                     if (empty($email)) {
                         $email = get_option('admin_email');
                     }

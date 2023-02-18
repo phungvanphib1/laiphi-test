@@ -55,23 +55,23 @@
                                             <div class="pf-bu-column pf-bu-one-sixth pf-algo-usage-css-fields">
                                                 <div>
                                                     <label for="pf-algo-usage-css-author"><?php _e('Author Selector', 'printfriendly'); ?></label>
-                                                    <input type="text" id="pf-algo-usage-css-author" name="<?php echo $this->option_name; ?>[css-author]" value="<?php $this->val('css-author'); ?>" data-selector-name="authorSelector">
+                                                    <input type="text" id="pf-algo-usage-css-author" name="<?php echo $this->option_name; ?>[css-author]" value="<?php $this->echoVal('css-author'); ?>" data-selector-name="authorSelector">
                                                 </div>
                                                 <div>
                                                     <label for="pf-algo-usage-css-content"><?php _e('Content Selector', 'printfriendly'); ?></label>
-                                                    <input type="text" id="pf-algo-usage-css-content" name="<?php echo $this->option_name; ?>[css-content]" value="<?php $this->val('css-content'); ?>" data-selector-name="contentSelectors">
+                                                    <input type="text" id="pf-algo-usage-css-content" name="<?php echo $this->option_name; ?>[css-content]" value="<?php $this->echoVal('css-content'); ?>" data-selector-name="contentSelectors">
                                                 </div>
                                                 <div>
                                                     <label for="pf-algo-usage-css-date"><?php _e('Date Selector', 'printfriendly'); ?></label>
-                                                    <input type="text" id="pf-algo-usage-css-date" name="<?php echo $this->option_name; ?>[css-date]" value="<?php $this->val('css-date'); ?>" data-selector-name="dateSelector">
+                                                    <input type="text" id="pf-algo-usage-css-date" name="<?php echo $this->option_name; ?>[css-date]" value="<?php $this->echoVal('css-date'); ?>" data-selector-name="dateSelector">
                                                 </div>
                                                 <div>
                                                     <label for="pf-algo-usage-css-title"><?php _e('Title Selector', 'printfriendly'); ?></label>
-                                                    <input type="text" id="pf-algo-usage-css-title" name="<?php echo $this->option_name; ?>[css-title]" value="<?php $this->val('css-title'); ?>" data-selector-name="titleSelector">
+                                                    <input type="text" id="pf-algo-usage-css-title" name="<?php echo $this->option_name; ?>[css-title]" value="<?php $this->echoVal('css-title'); ?>" data-selector-name="titleSelector">
                                                 </div>
                                                 <div>
                                                     <label for="pf-algo-usage-css-image"><?php _e('Image Selector', 'printfriendly'); ?></label>
-                                                    <input type="text" id="pf-algo-usage-css-image" name="<?php echo $this->option_name; ?>[css-primaryImage]" value="<?php $this->val('css-primaryImage'); ?>" data-selector-name="primaryImageSelector">
+                                                    <input type="text" id="pf-algo-usage-css-image" name="<?php echo $this->option_name; ?>[css-primaryImage]" value="<?php $this->echoVal('css-primaryImage'); ?>" data-selector-name="primaryImageSelector">
                                                 </div>
                                             </div>
                                             <div class="pf-bu-column pf-bu-one-sixth pf-algo-usage-css-strategy">
@@ -185,17 +185,17 @@
                                         
                                                 <div id="enter-image-url">
                                                     <input type="button" class="pf_upload_image_button button button-secondary" data-pf-element="#custom_image" value="<?php _e('Select Image', 'printfriendly'); ?>">
-                                                    <input id="custom_image" type="hidden" name="<?php echo $this->option_name; ?>[custom_image]" value="<?php $this->val('custom_image'); ?>" />
+                                                    <input id="custom_image" type="hidden" name="<?php echo $this->option_name; ?>[custom_image]" value="<?php $this->echoVal('custom_image'); ?>" />
                                                     <span id="custom_image_label">
-                                                        <?php if (! empty($this->val('custom_image', false))) { ?>
-                                                        <img src="<?php $this->val('custom_image'); ?>">
+                                                        <?php if (! empty($this->getVal('custom_image'))) { ?>
+                                                        <img src="<?php $this->echoVal('custom_image'); ?>">
                                                         <?php } ?>
                                                     </span>
                                                     <div id="custom-img-sizes">
                                                         <?php _e('Width', 'printfriendly'); ?>
-                                                        <input type="number" id="custom-img-width" min="0" class="small-text" name="<?php echo $this->option_name; ?>[custom_image_width]" value="<?php $this->val('custom_image_width'); ?>" />px
+                                                        <input type="number" id="custom-img-width" min="0" class="small-text" name="<?php echo $this->option_name; ?>[custom_image_width]" value="<?php $this->echoVal('custom_image_width'); ?>" />px
                                                         <?php _e('Height', 'printfriendly'); ?>
-                                                        <input type="number" id="custom-img-height" min="0" class="small-text" name="<?php echo $this->option_name; ?>[custom_image_height]" value="<?php $this->val('custom_image_height'); ?>" />px
+                                                        <input type="number" id="custom-img-height" min="0" class="small-text" name="<?php echo $this->option_name; ?>[custom_image_height]" value="<?php $this->echoVal('custom_image_height'); ?>" />px
                                                     </div>
                                                     <div id="pf-custom-button-error"></div>
                                                 </div>
@@ -212,13 +212,13 @@
                                             <div id="txt-enter">
                                                 <div class="pf-form-element">
                                                     <input id="custom-text-rb" type="radio" name="<?php echo $this->option_name; ?>[custom_button_text]" value="custom-text" <?php $this->checked('custom_button_text', 'custom-text'); ?>>
-                                                    <input id="custom_text" type="text" size="10" class="clear regular-text" name="<?php echo $this->option_name; ?>[custom_text]" value="<?php $this->val('custom_text'); ?>">
+                                                    <input id="custom_text" type="text" size="10" class="clear regular-text" name="<?php echo $this->option_name; ?>[custom_text]" value="<?php $this->echoVal('custom_text'); ?>">
 
                                                     <div id="pf-txt-attributes">
                                                         <div id="txt-size">
                                                             <?php _e('Text Size', 'printfriendly'); ?>
-                                                            <input type="number" id="text_size" min="9" max="25" class="small-text" name="<?php echo $this->option_name; ?>[text_size]" value="<?php $this->val('text_size'); ?>" />
-                                                            <input type="text" class="pf-color-picker" name="<?php echo $this->option_name; ?>[text_color]" id="text_color" value="<?php $this->val('text_color'); ?>" />
+                                                            <input type="number" id="text_size" min="9" max="25" class="small-text" name="<?php echo $this->option_name; ?>[text_size]" value="<?php $this->echoVal('text_size'); ?>" />
+                                                            <input type="text" class="pf-color-picker" name="<?php echo $this->option_name; ?>[text_color]" id="text_color" value="<?php $this->echoVal('text_color'); ?>" />
                                                         </div>
                                                     </div>
 
@@ -389,8 +389,8 @@
                                 <label for="password_protected" class="pf-bu-label"><?php _e('Encode images', 'printfriendly'); ?></label>
                                 <div>
                                     <select class="pf-bu-select" id="password_protected" name="<?php echo $this->option_name; ?>[password_protected]">
-                                        <option value="no" <?php selected($this->val('password_protected', false), 'no'); ?>><?php _e('No', 'printfriendly'); ?></option>
-                                        <option value="yes" <?php selected($this->val('password_protected', false), 'yes'); ?>><?php _e('Yes', 'printfriendly'); ?></option>
+                                        <option value="no" <?php selected($this->getVal('password_protected'), 'no'); ?>><?php _e('No', 'printfriendly'); ?></option>
+                                        <option value="yes" <?php selected($this->getVal('password_protected'), 'yes'); ?>><?php _e('Yes', 'printfriendly'); ?></option>
                                     </select>
                                     <p class="description"><?php _e('Select "Yes" if your site is not publicly accessible or if your provider blocks image requests from third parties or if images are not present in PDF', 'printfriendly'); ?></p>
                                 </div>
@@ -400,8 +400,8 @@
                                 <label for="show_hidden_content" class="pf-bu-label"><?php _e('Show Hidden Content', 'printfriendly'); ?></label>
                                 <div>
                                     <select class="pf-bu-select" id="show_hidden_content" name="<?php echo $this->option_name; ?>[show_hidden_content]">
-                                        <option value="no" <?php selected($this->val('show_hidden_content', false), 'no'); ?>><?php _e('No', 'printfriendly'); ?></option>
-                                        <option value="yes" <?php selected($this->val('show_hidden_content', false), 'yes'); ?>><?php _e('Yes', 'printfriendly'); ?></option>
+                                        <option value="no" <?php selected($this->getVal('show_hidden_content'), 'no'); ?>><?php _e('No', 'printfriendly'); ?></option>
+                                        <option value="yes" <?php selected($this->getVal('show_hidden_content'), 'yes'); ?>><?php _e('Yes', 'printfriendly'); ?></option>
                                     </select>
                                     <p class="description"><?php _e('By default PrintFriendly Pro will only show the visible content on the page. Select "Yes", if you want PrintFriendly to show hidden content. (Ex. Content in hidden tabs)', 'printfriendly'); ?></p>
                                 </div>
@@ -451,10 +451,10 @@
                                                 <div class="pf-bu-tile pf-bu-is-4 pf-bu-is-flex-direction-column">
                                                     <div>
                                                         <input type="button" class="pf_upload_image_button button button-secondary" data-pf-element="#custom_logo" value="<?php _e('Select Image', 'printfriendly'); ?>">
-                                                        <input id="custom_logo" type="hidden" name="<?php echo $this->option_name; ?>[image_url]" value="<?php $this->val('image_url'); ?>" />
+                                                        <input id="custom_logo" type="hidden" name="<?php echo $this->option_name; ?>[image_url]" value="<?php $this->echoVal('image_url'); ?>" />
                                                         <span id="custom_logo_label">
-                                                            <?php if (! empty($this->val('image_url', false))) { ?>
-                                                            <img src="<?php $this->val('image_url'); ?>">
+                                                            <?php if (! empty($this->getVal('image_url'))) { ?>
+                                                            <img src="<?php $this->echoVal('image_url'); ?>">
                                                             <?php } ?>
                                                         </span>
                                                     </div>
@@ -469,7 +469,7 @@
                                                             </a>
                                                           </p>
                                                           <p class="pf-bu-control">
-                                                            <input id="image-tagline" type="text" class="pf-bu-input regular-text pf-regular-text" name="<?php echo $this->option_name; ?>[tagline]" value="<?php $this->val('tagline'); ?>" />
+                                                            <input id="image-tagline" type="text" class="pf-bu-input regular-text pf-regular-text" name="<?php echo $this->option_name; ?>[tagline]" value="<?php $this->echoVal('tagline'); ?>" />
                                                           </p>
                                                         </div>                                                  
                                                     </div>
@@ -588,7 +588,7 @@
                                 <div class="pf-label-inline">
                                     <label for="custom_css" class="pf-bu-label"><?php _e('CSS', 'printfriendly'); ?></label>
                                     <div>
-                                        <textarea id="custom_css" class="regular-text pf-bu-textarea" rows="5" cols="80" name="<?php echo $this->option_name; ?>[custom_css]"><?php echo html_entity_decode(esc_textarea($this->val('custom_css', false))); ?></textarea>
+                                        <textarea id="custom_css" class="regular-text pf-bu-textarea" rows="5" cols="80" name="<?php echo $this->option_name; ?>[custom_css]"><?php echo html_entity_decode(esc_textarea($this->getVal('custom_css'))); ?></textarea>
                                         <p class="desc"><?php echo $this->get_custom_css_upgrade_message(); ?></p>
                                     </div>
                                 </div>
@@ -599,7 +599,7 @@
                                             <option value="inline_tag" <?php selected($this->options['css_include_via'], 'inline_tag'); ?>><?php _e('Inline Tag', 'printfriendly'); ?></option>
                                             <option value="file" <?php selected($this->options['css_include_via'], 'file'); ?>><?php _e('File', 'printfriendly'); ?></option>
                                         </select>
-                                        <?php if ($this->val('css_include_via', false) == 'file') { ?>
+                                        <?php if ($this->getVal('css_include_via') == 'file') { ?>
                                         <p class="desc pf-bu-has-background-warning-light pf-bu-py-1 pf-bu-px-2">We recommend setting this to Inline Tag</p>
                                         <?php } ?>
                                     </div>
@@ -607,7 +607,7 @@
                             <?php } else { ?>
                                 <label for="custom_css_url">
                                   <?php _e('Custom CSS URL', 'printfriendly'); ?>
-                                  <input id="custom_css_url" type="url" class="regular-text" name="<?php echo $this->option_name; ?>[custom_css_url]" value="<?php $this->val('custom_css_url'); ?>" />
+                                  <input id="custom_css_url" type="url" class="regular-text" name="<?php echo $this->option_name; ?>[custom_css_url]" value="<?php $this->echoVal('custom_css_url'); ?>" />
                                 </label>
                             <?php } ?>
                         </div>

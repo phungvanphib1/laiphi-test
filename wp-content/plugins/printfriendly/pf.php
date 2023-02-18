@@ -5,7 +5,7 @@
     Plugin URI: https://www.printfriendly.com
     Description: PrintFriendly & PDF button for your website. Optimizes your pages and brand for print, pdf, and email.
     Name and URL are included to ensure repeat visitors and new visitors when printed versions are shared.
-    Version: 5.4.0
+    Version: 5.5.0
     Author: Print, PDF, & Email by PrintFriendly
     Author URI: https://www.printfriendly.com
     Domain Path: /languages
@@ -40,7 +40,7 @@ if (! class_exists('PrintFriendly_WordPress')) {
          *
          * @var string
          */
-        var $plugin_version = '5.4.0';
+        var $plugin_version = '5.5.0';
         /**
          * The hook, used for text domain as well as hooks on pages and in get requests for admin.
          *
@@ -221,7 +221,7 @@ if (! class_exists('PrintFriendly_WordPress')) {
          **/
         function is_wp_algo_on($content)
         {
-            return ! class_exists('WooCommerce') && isset($this->options['pf_algo']) && $content && $this->options['pf_algo'] === 'wp' && ! $this->print_only_override($content);
+            return ! class_exists('WooCommerce') && $content && $this->getVal('pf_algo') === 'wp' && ! $this->print_only_override($content);
         }
 
         /**
@@ -240,11 +240,11 @@ if (! class_exists('PrintFriendly_WordPress')) {
         function is_enabled()
         {
             if (
-                ( is_page() && ( isset($this->options['show_on_pages']) && 'on' === $this->options['show_on_pages'] ) )
-                || ( is_home() && ( ( isset($this->options['show_on_homepage']) && 'on' === $this->options['show_on_homepage'] ) ) )
-                || ( is_tax() && ( ( isset($this->options['show_on_taxonomies']) && 'on' === $this->options['show_on_taxonomies'] ) && $this->category_included() ) )
-                || ( is_category() && ( ( isset($this->options['show_on_categories']) && 'on' === $this->options['show_on_categories'] ) && $this->category_included() ) )
-                || ( is_single() && ( ( isset($this->options['show_on_posts']) && 'on' === $this->options['show_on_posts'] ) && $this->category_included() ) )
+                ( is_page() && 'on' === $this->getVal('show_on_pages') )
+                || ( is_home() && 'on' === $this->getVal('show_on_homepage') )
+                || ( is_tax() && 'on' === $this->getVal('show_on_taxonomies') && $this->category_included() )
+                || ( is_category() && 'on' === $this->getVal('show_on_categories')  && $this->category_included() )
+                || ( is_single() && 'on' === $this->getVal('show_on_posts')  && $this->category_included() )
             ) {
                 return true;
             }
@@ -260,14 +260,14 @@ if (! class_exists('PrintFriendly_WordPress')) {
         {
             $css = array( 'z-index: 1000' );
 
-            if (in_array($this->options['button_alignment_method'], array( 'default' ), true)) {
+            if ($this->getVal('button_alignment_method') === 'default') {
                 $css[] = 'display: flex';
                 $css[] = sprintf(
                     'margin: %dpx %dpx %dpx %dpx',
-                    $this->val('margin_top', false, 0),
-                    $this->val('margin_right', false, 0),
-                    $this->val('margin_bottom', false, 0),
-                    $this->val('margin_left', false, 0)
+                    $this->getVal('margin_top', 0),
+                    $this->getVal('margin_right', 0),
+                    $this->getVal('margin_bottom', 0),
+                    $this->getVal('margin_left', 0)
                 );
             } else {
                 $css[] = 'position: relative';
@@ -283,7 +283,7 @@ if (! class_exists('PrintFriendly_WordPress')) {
          */
         function get_main_css()
         {
-            if (in_array($this->options['button_alignment_method'], array( 'css' ), true)) {
+            if ($this->getVal('button_alignment_method') === 'css') {
                 return '
 					@media print {
 						.printfriendly {
@@ -345,11 +345,11 @@ if (! class_exists('PrintFriendly_WordPress')) {
 				}
 				',
                 $this->get_css_rules_for_button(),
-                $this->options['text_size'],
-                $this->options['text_color'],
-                in_array($this->options['button_alignment_method'], array( 'default' ), true) ? 'justify-content: start;' : 'float: left;',
-                in_array($this->options['button_alignment_method'], array( 'default' ), true) ? 'justify-content: end;' : 'float: right;',
-                in_array($this->options['button_alignment_method'], array( 'default' ), true) ? '' : 'display: flex; align-items: center;'
+                $this->getVal('text_size'),
+                $this->getVal('text_color'),
+                $this->getVal('button_alignment_method') === 'default' ? 'justify-content: start;' : 'float: left;',
+                $this->getVal('button_alignment_method') === 'default' ? 'justify-content: end;' : 'float: right;',
+                $this->getVal('button_alignment_method') === 'default' ? '' : 'display: flex; align-items: center;'
             );
         }
 
@@ -360,7 +360,7 @@ if (! class_exists('PrintFriendly_WordPress')) {
          */
         function get_content_position_css_tag()
         {
-            $css = ! empty($this->options['content_position_css']) ? $this->options['content_position_css'] : '';
+            $css = $this->getVal('content_position_css');
             if (! empty($css)) {
                 return sprintf('<style type="text/css" id="pf-button-css">%s</style>', $css);
             }
@@ -378,7 +378,7 @@ if (! class_exists('PrintFriendly_WordPress')) {
                 return;
             }
 
-            if (isset($this->options['enable_css']) && $this->options['enable_css'] !== 'on') {
+            if ($this->getVal('enable_css') !== 'on') {
                 return;
             }
             ?>
@@ -404,9 +404,9 @@ if (! class_exists('PrintFriendly_WordPress')) {
          */
         function print_script_footer()
         {
-            $tagline = $this->options['tagline'];
-            $image_url = $this->options['image_url'];
-            if ($this->options['logo'] === 'favicon') {
+            $tagline = $this->getVal('tagline');
+            $image_url = $this->getVal('image_url');
+            if ($this->getVal('logo') === 'favicon') {
                 $tagline = '';
                 $image_url = '';
             }
@@ -419,14 +419,14 @@ if (! class_exists('PrintFriendly_WordPress')) {
             <?php echo $this->get_analytics_code(); ?>
           var pfHeaderImgUrl = '<?php echo esc_js(esc_url($image_url)); ?>';
           var pfHeaderTagline = '<?php echo esc_js($tagline); ?>';
-          var pfdisableClickToDel = '<?php echo esc_js($this->options['click_to_delete']); ?>';
-          var pfImagesSize = '<?php echo esc_js($this->options['images-size']); ?>';
-          var pfImageDisplayStyle = '<?php echo esc_js($this->options['image-style']); ?>';
-          var pfEncodeImages = '<?php echo esc_js($this->val('password_protected', false) === 'yes' ? 1 : 0); ?>';
-          var pfShowHiddenContent  = '<?php echo esc_js($this->val('show_hidden_content', false) === 'yes' ? 1 : 0); ?>';
-          var pfDisableEmail = '<?php echo esc_js($this->options['email']); ?>';
-          var pfDisablePDF = '<?php echo esc_js($this->options['pdf']); ?>';
-          var pfDisablePrint = '<?php echo esc_js($this->options['print']); ?>';
+          var pfdisableClickToDel = '<?php echo esc_js($this->getVal('click_to_delete')); ?>';
+          var pfImagesSize = '<?php echo esc_js($this->getVal('images-size')); ?>';
+          var pfImageDisplayStyle = '<?php echo esc_js($this->getVal('image-style')); ?>';
+          var pfEncodeImages = '<?php echo esc_js($this->getVal('password_protected') === 'yes' ? 1 : 0); ?>';
+          var pfShowHiddenContent  = '<?php echo esc_js($this->getVal('show_hidden_content') === 'yes' ? 1 : 0); ?>';
+          var pfDisableEmail = '<?php echo esc_js($this->getVal('email')); ?>';
+          var pfDisablePDF = '<?php echo esc_js($this->getVal('pdf')); ?>';
+          var pfDisablePrint = '<?php echo esc_js($this->getVal('print')); ?>';
 
             <?php
                 echo $this->get_custom_css_js_var();
@@ -495,7 +495,7 @@ if (! class_exists('PrintFriendly_WordPress')) {
                 $button = $this->getButton(false, $on_content ? 'pf-button-content' : 'pf-button-excerpt');
                 // Hook the script call now, so it only get's loaded when needed, and need is determined by the user calling pf_button
                 add_action('wp_footer', array(&$this, 'print_script_footer'));
-                if ($this->options['content_placement'] === 'before') {
+                if ($this->getVal('content_placement') === 'before') {
                     return $button . $content;
                 } else {
                     return $content . $button;
@@ -584,10 +584,10 @@ if (! class_exists('PrintFriendly_WordPress')) {
             }
 
             $align = '';
-            $position = $this->options['content_position'];
+            $position = $this->getVal('content_position');
 
             // none option has been removed and translates to left
-            if ('none' === $this->options['content_position']) {
+            if ('none' === $position) {
                 $position = 'left';
             }
             $align = ' pf-align' . $position;
@@ -605,18 +605,18 @@ if (! class_exists('PrintFriendly_WordPress')) {
         private function getSelectorsFromCustomCSS()
         {
             $css = '';
-            if ($this->options['pf_algo'] === 'css') {
+            if ($this->getVal('pf_algo') === 'css') {
                 $attributes = array();
                 $names = array( 'author', 'date', 'content', 'title', 'primaryImage' );
                 $data = '';
                 foreach ($names as $name) {
-                    $selector = $this->val("css-{$name}", false);
+                    $selector = $this->getVal("css-{$name}");
                     $suffix = $name === 'content' ? 'Selectors' : 'Selector';
                     if (! empty($selector)) {
                             $data .= "{$name}{$suffix}=$selector;";
                     }
                 }
-                $fallback = $this->options['pf_algo_css_content'];
+                $fallback = $this->getVal('pf_algo_css_content');
                 if ($data) {
                     $css = sprintf('<printfriendly-options data-selectors="%s" data-fallback-strategy="%s"></printfriendly-options>', esc_attr($data), esc_attr($fallback));
                 }
@@ -633,7 +633,7 @@ if (! class_exists('PrintFriendly_WordPress')) {
          */
         function google_analytics_enabled()
         {
-            return isset($this->options['enable_google_analytics']) && $this->options['enable_google_analytics'] === 'yes';
+            return $this->getVal('enable_google_analytics') === 'yes';
         }
 
         /**
@@ -644,7 +644,7 @@ if (! class_exists('PrintFriendly_WordPress')) {
          */
         function category_included()
         {
-            return isset($this->options['show_on_cat']) ? in_category(explode(',', $this->options['show_on_cat'])) : true;
+            return !empty($this->getVal('show_on_cat')) ? in_category(explode(',', $this->getVal('show_on_cat'))) : true;
         }
 
         /**
@@ -749,10 +749,10 @@ if (! class_exists('PrintFriendly_WordPress')) {
             }
 
             if (! isset($input['text_color'])) {
-                $valid_input['text_color'] = $this->options['text_color'];
+                $valid_input['text_color'] = $this->getVal('text_color');
             } elseif (! preg_match('/^#[a-f0-9]{3,6}$/i', $input['text_color'])) {
                 // Revert to previous setting and throw error.
-                $valid_input['text_color'] = $this->options['text_color'];
+                $valid_input['text_color'] = $this->getVal('text_color');
                 add_settings_error($this->option_name, 'invalid_color', __('The color you entered is not valid, it must be a valid hexadecimal RGB font color.', 'printfriendly'));
             }
 
@@ -850,10 +850,10 @@ if (! class_exists('PrintFriendly_WordPress')) {
             // check if this version is upgraded from the version that was using url instead of textbox
             // and reuse it
             if (empty($valid_input['custom_css']) && isset($this->options['custom_css_url'])) {
-                if (empty($this->options['custom_css_url'])) {
+                if (empty($this->getVal('custom_css_url'))) {
                     unset($valid_input['custom_css_url']);
                 } else {
-                    $valid_input['custom_css_url'] = $this->options['custom_css_url'];
+                    $valid_input['custom_css_url'] = $this->getVal('custom_css_url');
                 }
             } else {
                 if (empty($valid_input['custom_css'])) {
@@ -1303,7 +1303,7 @@ if (! class_exists('PrintFriendly_WordPress')) {
             }
 
             if ($this->options['db_version'] < 21) {
-                if (empty($this->val('custom_css', false))) {
+                if (empty($this->getVal('custom_css'))) {
                     $this->options['css_include_via'] = 'inline_tag';
                 } else {
                     $this->options['css_include_via'] = 'file';
@@ -1369,7 +1369,7 @@ if (! class_exists('PrintFriendly_WordPress')) {
         function button($name = false)
         {
             if (! $name) {
-                $name = $this->options['button_type'];
+                $name = $this->getVal('button_type');
             }
 
             $img_path = 'https://cdn.printfriendly.com/';
@@ -1378,9 +1378,9 @@ if (! class_exists('PrintFriendly_WordPress')) {
             $imgStyle = '';
 
             if ($name === 'custom-button') {
-                if ($this->options['custom_button_icon'] === 'custom-image' && '' !== trim($this->options['custom_image'])) {
-                    $width = $this->options['custom_image_width'];
-                    $height = $this->options['custom_image_height'];
+                if ($this->getVal('custom_button_icon') === 'custom-image' && '' !== trim($this->getVal('custom_image', ''))) {
+                    $width = $this->getVal('custom_image_width');
+                    $height = $this->getVal('custom_image_height');
                     if (! empty($width)) {
                         $imgStyle .= sprintf('width: %dpx;', $width);
                     }
@@ -1388,9 +1388,9 @@ if (! class_exists('PrintFriendly_WordPress')) {
                         $imgStyle .= sprintf('height: %dpx;', $height);
                     }
 
-                    $return = '<img src="' . esc_url($this->options['custom_image']) . '" alt="Print Friendly, PDF & Email" class="pf-button-img" style="' . $imgStyle . '"  />';
-                } elseif ($this->options['custom_button_icon'] !== 'no-image') {
-                    $icon = str_replace($img_path, '', $this->options['custom_button_icon']);
+                    $return = '<img src="' . esc_url($this->getVal('custom_image')) . '" alt="Print Friendly, PDF & Email" class="pf-button-img" style="' . $imgStyle . '"  />';
+                } elseif ($this->getVal('custom_button_icon') !== 'no-image') {
+                    $icon = str_replace($img_path, '', $this->getVal('custom_button_icon'));
                     $attributes = self::$_buttons[ $icon ];
                     $atts = '';
                     $width = $attributes['width'];
@@ -1402,11 +1402,11 @@ if (! class_exists('PrintFriendly_WordPress')) {
                         $imgStyle .= sprintf('height: %dpx;', $height);
                     }
 
-                    $return = '<img src="' . esc_url($this->options['custom_button_icon']) . '" alt="Print Friendly, PDF & Email" class="pf-button-img" style="' . $imgStyle . '"  />';
+                    $return = '<img src="' . esc_url($this->getVal('custom_button_icon')) . '" alt="Print Friendly, PDF & Email" class="pf-button-img" style="' . $imgStyle . '"  />';
                 }
 
-                if ($this->options['custom_button_text'] === 'custom-text') {
-                    $return .= sprintf('<span id="printfriendly-text2" class="pf-button-text">%s</span>', $this->esc_html_if_needed($this->options['custom_text']));
+                if ($this->getVal('custom_button_text') === 'custom-text') {
+                    $return .= sprintf('<span id="printfriendly-text2" class="pf-button-text">%s</span>', $this->esc_html_if_needed($this->getVal('custom_text')));
                 }
 
                 return $return;
@@ -1436,16 +1436,16 @@ if (! class_exists('PrintFriendly_WordPress')) {
         function custom_button_preview()
         {
             $img = $url = $button_text = $style = $width = $height = '';
-            switch ($this->options['custom_button_icon']) {
+            switch ($this->getVal('custom_button_icon')) {
                 case 'no-image':
                     break;
                 case 'custom-image':
-                    $url = $this->options['custom_image'];
-                    $width = $this->options['custom_image_width'];
-                    $height = $this->options['custom_image_height'];
+                    $url = $this->getVal('custom_image');
+                    $width = $this->getVal('custom_image_width');
+                    $height = $this->getVal('custom_image_height');
                     break;
                 default:
-                    $url = $this->options['custom_button_icon'];
+                    $url = $this->getVal('custom_button_icon');
                     break;
             }
 
@@ -1460,12 +1460,12 @@ if (! class_exists('PrintFriendly_WordPress')) {
                 $img = sprintf('<img src="%s" style="%s" alt="Print Friendly, PDF & Email">', esc_url($url), $imgStyle);
             }
 
-            if ($this->options['custom_button_text'] !== 'no-text') {
-                $button_text = $this->options['custom_text'];
+            if ($this->getVal('custom_button_text') !== 'no-text') {
+                $button_text = $this->getVal('custom_text');
             }
 
-            if ('' !== $this->options['text_color']) {
-                $style .= 'color: ' . $this->options['text_color'] . ';';
+            if ('' !== $this->getVal('text_color', '')) {
+                $style .= 'color: ' . $this->getVal('text_color') . ';';
             }
 
             $button_preview = sprintf('<span><span id="pf-custom-button-preview" class="pf-button-img">%s</span><span id="printfriendly-text2" class="pf-button-text" style="%s">%s</span></span>', $img, $style, $this->esc_html_if_needed($button_text));
@@ -1473,26 +1473,18 @@ if (! class_exists('PrintFriendly_WordPress')) {
             echo $button_preview;
         }
 
-        /**
-         * Convenience function to output a value for an input
-         *
-         * @since 3.0
-         * @param string $val value to check.
-         */
-        function val($val, $echo = true, $default = null)
+        function echoVal($option, $default = '')
         {
-            $value = '';
-            if (isset($this->options[ $val ])) {
-                $value = esc_attr($this->options[ $val ]);
+            echo $this->getVal($option, $default);
+        }
+
+        function getVal($option, $default = null)
+        {
+            $value = $default;
+            if (isset($this->options[ $option ])) {
+                $value = $this->options[ $option ];
             }
 
-            if (empty($value) && ! is_null($default)) {
-                $value = $default;
-            }
-
-            if ($echo) {
-                echo $value;
-            }
             return $value;
         }
 
@@ -1628,7 +1620,7 @@ if (! class_exists('PrintFriendly_WordPress')) {
          */
         function is_pro($feature = null)
         {
-            $licensed = true;//$this->val('license_status', false) === 'pro';
+            $licensed = true;//$this->getVal('license_status') === 'pro';
 
             switch ($feature) {
                 case 'custom-css':
@@ -1641,8 +1633,8 @@ if (! class_exists('PrintFriendly_WordPress')) {
 
         function get_custom_css_tag()
         {
-            $custom_css = $this->val('custom_css', false);
-            if (!empty($custom_css) && isset($this->options['css_include_via']) && 'inline_tag' === $this->options['css_include_via']) {
+            $custom_css = $this->getVal('custom_css');
+            if (!empty($custom_css) && 'inline_tag' === $this->getVal('css_include_via')) {
                 return sprintf('<printfriendly-css style="display: none;">%s</printfriendly-css>', html_entity_decode($custom_css));
             }
         }
@@ -1657,11 +1649,11 @@ if (! class_exists('PrintFriendly_WordPress')) {
 
         function get_custom_css_url()
         {
-            $css_url = isset($this->options['custom_css_url']) ? $this->options['custom_css_url'] : '';
+            $css_url = $this->getVal('custom_css_url', '');
 
-            if (empty($css_url) && isset($this->options['css_include_via']) && 'file' === $this->options['css_include_via']) {
+            if (empty($css_url) && 'file' === $this->getVal('css_include_via')) {
                 // It could be unset because custom css is empty
-                $css_url = isset($this->options['custom_css_url_pro']) ? $this->options['custom_css_url_pro'] : '';
+                $css_url = $this->getVal('custom_css_url_pro');
                 if (!empty($css_url)) {
                     $dirs = wp_get_upload_dir();
                     $css_url = $dirs['baseurl'] . '/' . $css_url;
@@ -1676,9 +1668,9 @@ if (! class_exists('PrintFriendly_WordPress')) {
          */
         function generate_custom_css_file($css)
         {
-            $file = isset($this->options['custom_css_url_pro']) ? $this->options['custom_css_url_pro'] : '';
+            $file = $this->getVal('custom_css_url_pro');
 
-            $custom_css_old = html_entity_decode($this->val('custom_css', false));
+            $custom_css_old = html_entity_decode($this->getVal('custom_css'));
 
             // return the old file if the CSS has not changed.
             if ($custom_css_old === $css && ! empty($file)) {
@@ -1689,7 +1681,7 @@ if (! class_exists('PrintFriendly_WordPress')) {
 
             // delete old file, if it exists
             if (! empty($file)) {
-                wp_delete_file($dirs['basedir'] . '/' . $this->options['custom_css_url_pro']);
+                wp_delete_file($dirs['basedir'] . '/' . $file);
             }
 
             // add a comment so that users know whence this file came.
@@ -1719,8 +1711,8 @@ if (! class_exists('PrintFriendly_WordPress')) {
         function get_custom_css_upgrade_message()
         {
             // upgrading from a version that was using urls instead of the textarea?
-            if (isset($this->options['custom_css_url']) && ! empty($this->options['custom_css_url'])) {
-                $css_url = $this->options['custom_css_url'];
+            $css_url = $this->getVal('custom_css_url');
+            if (! empty($css_url)) {
                 return sprintf(__('You are currently using %1$s%2$s%3$s. You can copy its contents into the textbox if you want to update the styles.', 'printfriendly'), '<a href="' . $css_url . '" target="_blank">', $css_url, '</a>');
             }
 

@@ -3,7 +3,7 @@ Contributors: printfriendly, joostdevalk, jrf, rozroz
 Tags: print, pdf, email, woocommerce print, woocommerce pdf, print plugin, print button, pdf plugin, pdf button
 Requires at least: 4.9
 Tested up to: 6.1.1
-Stable tag: 5.4.0
+Stable tag: 5.5.0
 
 
 The #1 Print, PDF, Email button. Stylish, full featured, customizable. Add custom header, footer, and more.
@@ -18,14 +18,15 @@ PrintFriendly Pro is GDPR compliant. [Privacy Policy](https://www.printfriendly.
 
 PrintFriendly is used by millions of people everyday to help them save paper and ink when they print and generate PDFs (Good for the environment and peoples wallet!).
 
-
 * Print, PDF, and email.
 * Stylish, highly polished, intuitive UI/UX that end-users love.
 * Editable Preview - change text/image size, and delete to save even more paper and ink.
 * PDF - clickable links and custom paper sizes (A4 or Letter).
 * Reliable & Fast - Since 2009 we've optimized and improved.
+* [Compatible](https://support.printfriendly.com/wordpress/social-share-compatibility/) with **social share plugins** like Social Snap, Social Pug, NovaShare, Shareaholic 
 
 **Benefits For Publishers**
+
 * Automatically detects page content so you don't have to create print.css.
 * Professional: highly polished, stable, and supported.
 * Works on HTTP, HTTPS, and password protected sites.
@@ -140,6 +141,10 @@ Use the option in the Plugin settings. [See how](https://support.printfriendly.c
 
 
 == Changelog ==
+
+= 5.5.0 =
+* Fix Undefined array key error
+* Internal refactoring for eliminating errors of this kind
 
 = 5.4.0 =
 * Fix restricting of button to categories when more than one category is selected
