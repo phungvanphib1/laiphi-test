@@ -7,6 +7,7 @@ get_header();
 $is_page_builder_used = et_pb_is_pagebuilder_used(get_the_ID());
 
 ?>
+<br>
 
 <style>
 	img {
@@ -126,12 +127,11 @@ get_footer();
 					callback: function(doc) {
 						doc.save('addfont.pdf');
 					},
-					margin: [0, 1, 50, 0],
+					margin: [0, 1, 1, 0],
 					x: 0,
 					y: 0,
 					width: 210,
 					autoPaging: "text",
-					// windowWidth: 1520,
 					windowWidth: 1520,
 				}, 1000);
 			});
